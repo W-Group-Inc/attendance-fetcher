@@ -71,7 +71,7 @@ class AttendanceController extends Controller
             if($response->id != 0)
             {
 
-                $attendances = collect($zk->getAttendance())->where('timestamp','>=',"2025-04-23 17:00:00")->take(500);
+                $attendances = collect($zk->getAttendance())->where('timestamp','>=',date('Y-m-d 17:00:00',strtotime("2025-04-23")))->take(500);
             }
             else
             {
