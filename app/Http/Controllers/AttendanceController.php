@@ -91,6 +91,7 @@ class AttendanceController extends Controller
             $client = new \GuzzleHttp\Client();
     
             $apiRequest = $client->request('POST', $system."/save-attendance", $requestContent);
+            return $attendances->array();
             $zk->disconnect();   
         }
         
