@@ -54,7 +54,7 @@ class send_attendance extends Command
         // dd($attendances);
         foreach($attendances as $att)
         {
-                if($att->type == 0)
+                if($att->type != 6)
                 {
                     $time_in_after = date('Y-m-d H:i:s',strtotime($att->datetime));
                     $time_in_before = date('Y-m-d H:i:s', strtotime ( '+16 hour' , strtotime ( $time_in_after ) )) ;
@@ -83,7 +83,7 @@ class send_attendance extends Command
 
 
                 }
-                else
+                if($att->type != 6)
                 {
                     $time_in_after = date('Y-m-d H:i:s',strtotime($att->datetime));
                     $time_in_before = date('Y-m-d H:i:s', strtotime ( '-16 hour' , strtotime ( $time_in_after ) )) ;
